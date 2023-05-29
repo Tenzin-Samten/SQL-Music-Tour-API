@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 const {
   Model
 } = require('sequelize');
@@ -9,17 +9,16 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate({meetGreet, SetTime}) {
+    static associate({MeetGreet, SetTime}) {
       // define association here
       Band.hasMany (MeetGreet, {
-        foreignKey:"band_id",
-        as: "meet_greet",
+        foreignKey: "band_id",
+        as: "meet_greets",
       })
 
       Band.hasMany (SetTime, {
         foreignKey: "band_id",
-        as: "set_time",
-
+        as: "set_times",
       })
     }
   }
@@ -51,6 +50,5 @@ module.exports = (sequelize, DataTypes) => {
     tableName: 'bands',
     timestamps: false
   })
-
-  return Band;
-};
+  return Band
+}
